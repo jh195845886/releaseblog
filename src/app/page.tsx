@@ -1,65 +1,171 @@
-import Image from "next/image";
+import Link from "next/link"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-primary-50">
+      {/* Hero */}
+      <header className="max-w-6xl mx-auto px-6 py-20 text-center">
+        <div className="inline-block mb-6 px-4 py-1.5 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
+          🚀 Now in beta
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight">
+          Turn Every Release
+          <br />
+          <span className="text-primary-600">Into SEO Traffic</span>
+        </h1>
+        <p className="mt-6 text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          Connect your GitHub repo. We watch your releases and auto-generate
+          SEO-optimized blog posts, meta descriptions, and social copy — so you
+          rank on Google without writing a word.
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-4">
+          <Link
+            href="/login"
+            className="px-8 py-4 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-colors text-lg font-semibold shadow-lg shadow-slate-900/10"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
+            Get Started Free
+          </Link>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#how-it-works"
+            className="px-8 py-4 text-slate-600 hover:text-slate-900 transition-colors text-lg font-medium"
           >
-            Documentation
+            How it works →
           </a>
         </div>
-      </main>
+      </header>
+
+      {/* How it Works */}
+      <section id="how-it-works" className="max-w-6xl mx-auto px-6 py-24">
+        <h2 className="text-3xl font-bold text-center text-slate-900 mb-16">
+          Three steps to SEO automation
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              emoji: "🔗",
+              title: "Connect GitHub",
+              desc: "Sign in with GitHub and pick any repo. Zero configuration needed.",
+            },
+            {
+              emoji: "📝",
+              title: "Release & Generate",
+              desc: "Every time you create a release, we analyze the changes and craft a blog post.",
+            },
+            {
+              emoji: "📈",
+              title: "Rank & Grow",
+              desc: "Publish the blog to your site. Google indexes it. New users find you.",
+            },
+          ].map((step, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-2xl border border-slate-200 p-8 text-center hover:shadow-lg transition-shadow"
+            >
+              <div className="text-4xl mb-4">{step.emoji}</div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">
+                {step.title}
+              </h3>
+              <p className="text-slate-500">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <h2 className="text-3xl font-bold text-center text-slate-900 mb-4">
+          Simple Pricing
+        </h2>
+        <p className="text-slate-500 text-center mb-16">
+          Start free. Upgrade when you need more.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {[
+            {
+              name: "Free",
+              price: "$0",
+              period: "forever",
+              features: ["1 blog post / month", "Basic SEO optimization", "Markdown export"],
+              cta: "Get Started",
+              href: "/login",
+              featured: false,
+            },
+            {
+              name: "Pro",
+              price: "$19",
+              period: "/month",
+              features: [
+                "10 blog posts / month",
+                "Advanced SEO optimization",
+                "Social media copy",
+                "Priority generation",
+              ],
+              cta: "Start Pro",
+              href: "/login",
+              featured: true,
+            },
+            {
+              name: "Team",
+              price: "$49",
+              period: "/month",
+              features: [
+                "Unlimited blog posts",
+                "Multiple repos",
+                "Custom brand voice",
+                "Auto-publish (coming soon)",
+                "Priority support",
+              ],
+              cta: "Start Team",
+              href: "/login",
+              featured: false,
+            },
+          ].map((plan) => (
+            <div
+              key={plan.name}
+              className={`bg-white rounded-2xl border p-8 ${
+                plan.featured
+                  ? "border-primary-500 shadow-xl shadow-primary-500/10 scale-105"
+                  : "border-slate-200"
+              }`}
+            >
+              {plan.featured && (
+                <div className="text-xs font-semibold text-primary-600 uppercase tracking-wider mb-3">
+                  Most Popular
+                </div>
+              )}
+              <h3 className="text-xl font-bold text-slate-900">{plan.name}</h3>
+              <div className="mt-4 mb-6">
+                <span className="text-4xl font-extrabold text-slate-900">
+                  {plan.price}
+                </span>
+                <span className="text-slate-400">{plan.period}</span>
+              </div>
+              <ul className="space-y-3 mb-8">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex items-center gap-2 text-slate-600 text-sm">
+                    <span className="text-green-500">✓</span> {f}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href={plan.href}
+                className={`block text-center py-3 rounded-xl font-semibold transition-colors ${
+                  plan.featured
+                    ? "bg-primary-600 text-white hover:bg-primary-700"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                }`}
+              >
+                {plan.cta}
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-slate-200 py-8 text-center text-sm text-slate-400">
+        ReleaseBlog — Built for indie hackers who&apos;d rather ship than write.
+      </footer>
     </div>
-  );
+  )
 }
