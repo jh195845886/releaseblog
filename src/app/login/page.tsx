@@ -10,14 +10,12 @@ export default function LoginPage() {
           <h1 className="text-4xl font-bold text-primary-600">ReleaseBlog</h1>
           <p className="mt-3 text-slate-500 text-lg">Turn every release into SEO content</p>
         </div>
-
         <div className="mt-8 space-y-4">
           <div className="bg-slate-50 rounded-xl p-6 space-y-3 text-sm text-slate-600">
             <div className="flex items-center gap-3"><span>🚀</span><span>Connect your GitHub repo</span></div>
             <div className="flex items-center gap-3"><span>📝</span><span>Auto-generate SEO blog posts from releases</span></div>
             <div className="flex items-center gap-3"><span>🔍</span><span>Rank on Google without writing a word</span></div>
           </div>
-
           <button
             onClick={() => signIn("github", { callbackUrl: "/dashboard" }, { scope: "repo read:user user:email" })}
             className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-colors font-medium text-lg"
