@@ -1,4 +1,5 @@
 import Link from "next/link"
+import WaitlistForm from "./WaitlistForm"
 
 export default function HomePage() {
   return (
@@ -33,6 +34,9 @@ export default function HomePage() {
           </a>
         </div>
       </header>
+
+      {/* Waitlist */}
+      <WaitlistForm />
 
       {/* How it Works */}
       <section id="how-it-works" className="max-w-6xl mx-auto px-6 py-24">
